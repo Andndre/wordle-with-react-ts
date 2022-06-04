@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .empty {
+    @apply border-2 border-gray-200;
+  }
+  .letter {
+    @apply border-2 border-gray-500;
+    animation: pop 100ms ease-in-out;
+  }
+  .in-word {
+    @apply bg-yellow-400;
+    animation: spin 500ms ease-in-out;
+  }
+  .correct {
+    @apply bg-green-400;
+    animation: spin 500ms ease-in-out;
+  }
+  .not-in-word {
+    @apply bg-gray-400;
+    animation: spin 500ms ease-in-out;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.row .in-word:nth-child(2),
+.row .not-in-word:nth-child(2),
+.row .correct:nth-child(2) {
+  animation-delay: 200ms;
+}
+.row .in-word:nth-child(3),
+.row .not-in-word:nth-child(3),
+.row .correct:nth-child(3) {
+  animation-delay: 300ms;
+}
+.row .in-word:nth-child(4),
+.row .not-in-word:nth-child(4),
+.row .correct:nth-child(4) {
+  animation-delay: 350ms;
+}
+.row .in-word:nth-child(5),
+.row .not-in-word:nth-child(5),
+.row .correct:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+.popup {
+  animation: popup 100ms ease-in-out;
+}
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
